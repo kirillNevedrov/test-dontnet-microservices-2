@@ -36,3 +36,5 @@ global using Microsoft.Extensions.Diagnostics.HealthChecks;
 global using Microsoft.OpenApi.Models;
 global using System.Reflection;
 global using Microsoft.Extensions.FileProviders;
+global using Polly.Retry;
+global using Polly;

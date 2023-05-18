@@ -10,12 +10,12 @@ services:
 
   sqldata:
     environment:
-      - SA_PASSWORD=Pass@word
+      - SA_PASSWORD=Pass1word
       - ACCEPT_EULA=Y
     ports:
       - "5433:1433"
     volumes:
-      - eshop-sqldata:/var/opt/mssql
+      - test_msc_2-sqldata:/var/opt/mssql
 
   rabbitmq:
     ports:
@@ -25,7 +25,7 @@ services:
   catalog-api:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - ConnectionString=${ESHOP_AZURE_CATALOG_DB:-Server=sqldata;Database=Microsoft.eShopOnContainers.Services.CatalogDb;User Id=sa;Password=Pass@word;Encrypt=False;TrustServerCertificate=true}
+      - ConnectionString=${ESHOP_AZURE_CATALOG_DB:-Server=sqldata;Database=Microsoft.eShopOnContainers.Services.CatalogDb;User Id=sa;Password=Pass1word;Encrypt=False;TrustServerCertificate=true}
       - PicBaseUrl=${ESHOP_STORAGE_CATALOG_URL}
       - EventBusConnection=${ESHOP_AZURE_SERVICE_BUS:-rabbitmq}
       - EventBusUserName=${ESHOP_SERVICE_BUS_USERNAME}
@@ -45,6 +45,6 @@ services:
       - "9101:81"
 
 volumes:
-  eshop-sqldata:
+  test_msc_2-sqldata:
     external: false
 

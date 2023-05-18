@@ -9,10 +9,10 @@ services:
     image: rabbitmq:3-management-alpine
 
   catalog-api:
-    image: ${REGISTRY:-eshop}/catalog.api:${PLATFORM:-linux}-${TAG:-latest}
+    image: ${REGISTRY:-test_msc_2}/catalog.api:${PLATFORM:-linux}-${TAG:-latest}
     build:
       context: .
-      dockerfile: Services/Catalog/Catalog.API/Dockerfile
+      dockerfile: Catalog/Dockerfile
     depends_on:
       - sqldata
       - rabbitmq
